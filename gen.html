@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineNova</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #d8f3dc; /* Fondo verde claro */
+      color: #1b4332; /* Texto verde oscuro */
+      padding: 20px;
+    }
+    h1 {
+      color: #2d6a4f; /* Verde medio */
+      text-align: center;
+    }
+    .container {
+      background-color: #95d5b2; /* Verde pastel */
+      border: 2px solid #1b4332; /* Borde verde oscuro */
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #1b4332;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #b7e4c7; /* Fondo de inputs */
+      color: #1b4332; /* Texto verde oscuro */
+    }
+    button {
+      background-color: #2d6a4f; /* Botón verde medio */
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1b4332; /* Verde más oscuro */
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 14px;
+      background-color: #b7e4c7; /* Fondo verde pastel */
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #1b4332;
+      color: #1b4332;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      background-color: #2d6a4f;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background-color: #1b4332;
+    }
+  </style>
+</head>
+<body>
+  <h1>CineNova</h1>
+  <div class="container">
+    <label for="urlInput">Ingresa una URL:</label>
+    <input type="text" id="urlInput" placeholder="https://example.com">
+    
+    <label for="adsOption">¿Mostrar anuncios?</label>
+    <select id="adsOption">
+      <option value="Y2luZW5vdmE=">Sí</option>
+      <option value="dHJ1ZQ==">No</option>
+    </select>
+    
+    <button onclick="generateEncodedURL()">Generar URL Codificada</button>
+    
+    <div id="output" class="output" style="display: none;">
+      <strong>URL Generada:</strong> 
+      <p id="finalURL"></p>
+      <button class="copy-btn" onclick="copyToClipboard()">Copiar URL</button>
+    </div>
+  </div>
+
+  <script>
+    function generateEncodedURL() {
+      const urlInput = document.getElementById('urlInput').value;
+      const adsOption = document.getElementById('adsOption').value;
+
+      if (!urlInput) {
+        alert("Por favor, ingresa una URL válida.");
+        return;
+      }
+
+      const encodedURL = btoa(urlInput);
+      const finalURL = `dominio?a=${adsOption}&v=${encodedURL}`;
+      
+      document.getElementById('finalURL').textContent = finalURL;
+      document.getElementById('output').style.display = 'block';
+    }
+
+    function copyToClipboard() {
+      const finalURL = document.getElementById('finalURL').textContent;
+      navigator.clipboard.writeText(finalURL)
+        .then(() => alert("¡URL copiada al portapapeles!"))
+        .catch(err => alert("Error al copiar la URL: " + err));
+    }
+  </script>
+</body>
+</html>
