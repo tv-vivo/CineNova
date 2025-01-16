@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineNova</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+</head>
+<body>
+<style>
+html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        #player {
+            width: 100% !important;
+            height: 100% !important;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+        }
+</style>
+    <div id="player"></div>
+
+    <script>  
+
+document.addEventListener("DOMContentLoaded", function() {
+  const source = new URLSearchParams(window.location.search).get('v')
+  
+    
+  
+
+    
+   
+                  
+              
+        const playerInstance = jwplayer("player").setup({
+            controls: true,
+            displaytitle: false,
+            displaydescription: true,
+            skin: {
+                name: "classic"
+            },
+            logo: {
+                file: null,
+                link: "#"
+            },
+            captions: {
+                color: "#FFF",
+                fontSize: 14,
+                backgroundOpacity: 0,
+                edgeStyle: "raised"
+            },
+            playlist: [
+                {
+                title: null,
+                description: null,
+                image: null,
+                sources: [
+                        {
+                            file: atob(source),
+                            label: "1080p",
+                            default: true
+                        }
+                    ]
+                }
+            ],
+            advertising: {
+                client: "vast",
+                schedule: []  // Sin anuncios
+            }
+        });
+    
+    });   
+
+
+
+const i_sourc = new URLSearchParams(window.location.search).get('a');
+
+const i_source = atob(i_sourc)
+
+if (i_source !== "true") {
+    (function(s, u, z, p) {
+        s.src = u;
+        s.setAttribute('data-zone', z);
+        p.appendChild(s);
+    })(document.createElement('script'), 'https://shebudriftaiter.net/tag.min.js', 8800437, document.body || document.documentElement);
+}
+</script>
+
+</body>
+</html>
