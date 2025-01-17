@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
             controls: true,
             displaytitle: false,
             displaydescription: true,
+            playbackRates: [0.5, 1, 1.25, 1.5, 2],
+            download: true,
             skin: {
                 name: "classic"
             },
@@ -62,8 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 sources: [
                         {
                             file: atob(source),
-                            label: "1080p",
-                            default: true
                         }
                     ]
                 }
