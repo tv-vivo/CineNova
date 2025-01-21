@@ -8,7 +8,7 @@
         /* Fondo con degradado futurista y brillo */
         body {
             background: linear-gradient(135deg, #00ffcc, #00d1ff);
-            background-size: cover;
+            background-size: 400% 400%;
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: #ffffff;
@@ -18,29 +18,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-blend-mode: overlay;
             text-align: center;
-        }
-
-        /* Contenedor del mensaje con sombra y fondo oscuro semi-transparente */
-        .container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            max-width: 400px;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-        }
-
-        p {
-            font-size: 1.5em;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            animation: gradient 15s ease infinite;
         }
 
         /* Animación sutil en los colores del fondo */
@@ -50,9 +29,51 @@
             100% { background-position: 0% 50%; }
         }
 
-        body {
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+        /* Contenedor del mensaje */
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5%;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Media Queries para ajustar diseño en pantallas pequeñas */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 10%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
