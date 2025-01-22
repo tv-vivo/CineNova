@@ -1,3 +1,3 @@
 const tokens = [
-  ""
+  "test"
 ]
